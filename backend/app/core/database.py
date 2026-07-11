@@ -45,12 +45,23 @@ async def close_mongo_connection():
 
 async def connect_to_redis():
     """Create Redis connection on app startup."""
-    db_instance.redis = aioredis.from_url(
-        settings.REDIS_URL,
-        encoding="utf-8",
-        decode_responses=True
-    )
-    print("✅ Connected to Redis")
+    try:
+        if not settings.REDIS_URL or settings.REDIS_URL.lower() == "none":
+            print("⚠️ REDIS_URL is disabled. Caching disabled.")
+            db_instance.redis = None
+            return
+            
+        client = aioredis.from_url(
+            settings.REDIS_URL,
+            encoding="utf-8",
+            decode_responses=True
+        )
+        await client.ping()
+        db_instance.redis = client
+        print("✅ Connected to Redis")
+    except Exception as e:
+        print(f"⚠️ Redis connection failed (caching disabled): {e}")
+        db_instance.redis = None
 
 
 async def close_redis_connection():
