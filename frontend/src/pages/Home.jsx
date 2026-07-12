@@ -155,7 +155,7 @@ const styles = {
     padding: "4rem 3rem",
     textAlign: "center",
     marginBottom: "4rem",
-    background: "radial-gradient(circle at top right, rgba(139, 92, 246, 0.15), transparent), rgba(19, 19, 31, 0.6)",
+    background: "radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent), rgba(255, 255, 255, 0.4)",
   },
   heroContent: {
     maxWidth: "800px",

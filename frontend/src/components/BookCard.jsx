@@ -15,7 +15,7 @@ const BookCard = ({ book }) => {
   const fetchListStatus = async () => {
     if (!user) return;
     try {
-      const response = await api.get(`/reading-lists/book-status/${book.id}`);
+      const response = await api.get(`/reading-lists/book-status/${bookId}`);
       setLists(response.data);
     } catch (e) {
       console.error("Failed to fetch list status:", e);
@@ -26,9 +26,9 @@ const BookCard = ({ book }) => {
     setLoading(true);
     try {
       if (containsBook) {
-        await api.delete(`/reading-lists/${listId}/books/${book.id}`);
+        await api.delete(`/reading-lists/${listId}/books/${bookId}`);
       } else {
-        await api.post(`/reading-lists/${listId}/books`, { book_id: book.id });
+        await api.post(`/reading-lists/${listId}/books`, { book_id: bookId });
       }
       // Re-fetch status
       await fetchListStatus();
@@ -39,9 +39,11 @@ const BookCard = ({ book }) => {
     }
   };
 
+  const bookId = book.id || book.google_books_id;
+
   return (
     <div className="glass-panel book-card animate-fade-in" style={styles.card}>
-      <Link to={`/books/${book.id}`} style={styles.coverLink}>
+      <Link to={`/books/${bookId}`} style={styles.coverLink}>
         <div style={styles.coverWrapper}>
           {book.cover_image ? (
             <img src={book.cover_image} alt={book.title} style={styles.cover} />
@@ -57,7 +59,7 @@ const BookCard = ({ book }) => {
 
       <div style={styles.info}>
         <h4 className="font-serif" style={styles.title}>
-          <Link to={`/books/${book.id}`} style={styles.titleLink}>
+          <Link to={`/books/${bookId}`} style={styles.titleLink}>
             {book.title}
           </Link>
         </h4>

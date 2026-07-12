@@ -8,7 +8,7 @@ const Browse = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialSearch = searchParams.get("search") || "";
   const initialCategory = searchParams.get("category") || "";
-  const initialSource = searchParams.get("source") || (initialSearch ? "google" : "local");
+  const initialSource = searchParams.get("source") || "local";
 
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -94,13 +94,30 @@ const Browse = () => {
 
   return (
     <div className="container animate-fade-in" style={styles.container}>
-      <div style={styles.header}>
-        <h1 className="font-serif">Discover Books</h1>
-        <p style={{ color: "var(--text-secondary)" }}>
-          {source === "google"
-            ? `Showing results from online catalog for "${searchQuery}"`
-            : "Browse books cached by the BookVerse community"}
-        </p>
+      <div style={styles.headerContainer}>
+        <div style={styles.headerText}>
+          <h1 className="font-serif">Discover Books</h1>
+          <p style={{ color: "var(--text-secondary)", marginTop: "0.25rem" }}>
+            {source === "google"
+              ? "Browse books from the vast ocean of books."
+              : "Browse books cached by the BookVerse community."}
+          </p>
+        </div>
+        <button
+          onClick={() => {
+            const newSource = source === "local" ? "google" : "local";
+            setSource(newSource);
+            const newParams = { source: newSource };
+            if (searchQuery.trim()) {
+              newParams.search = searchQuery.trim();
+            }
+            setSearchParams(newParams);
+          }}
+          className="btn btn-primary"
+          style={styles.switchModeBtn}
+        >
+          {source === "local" ? "Search Online" : "Search in Community Shelf"}
+        </button>
       </div>
 
       {/* Filter and Search Bar */}
@@ -124,49 +141,8 @@ const Browse = () => {
           </button>
         </form>
 
-        <div style={styles.optionsWrapper}>
-          {/* Source toggler */}
-          <div style={styles.toggleGroup}>
-            <button
-              onClick={() => {
-                setSource("local");
-                const newParams = {};
-                if (searchQuery.trim()) {
-                  newParams.search = searchQuery.trim();
-                  newParams.source = "local";
-                }
-                setSearchParams(newParams);
-              }}
-              style={{
-                ...styles.toggleBtn,
-                backgroundColor: source === "local" ? "rgba(139, 92, 246, 0.15)" : "transparent",
-                borderColor: source === "local" ? "var(--primary)" : "var(--border-color)",
-                color: source === "local" ? "var(--text-primary)" : "var(--text-secondary)",
-              }}
-            >
-              Community Shelf
-            </button>
-            <button
-              onClick={() => {
-                if (searchQuery.trim()) {
-                  setSource("google");
-                  setSearchParams({ search: searchQuery.trim(), source: "google" });
-                } else {
-                  alert("Please enter a query in the search bar first!");
-                }
-              }}
-              style={{
-                ...styles.toggleBtn,
-                backgroundColor: source === "google" ? "rgba(139, 92, 246, 0.15)" : "transparent",
-                borderColor: source === "google" ? "var(--primary)" : "var(--border-color)",
-                color: source === "google" ? "var(--text-primary)" : "var(--text-secondary)",
-              }}
-            >
-              Online Catalog
-            </button>
-          </div>
-
-          {source === "local" && (
+        {source === "local" && (
+          <div style={styles.optionsWrapperLocal}>
             <div style={styles.selects}>
               {/* Category selector */}
               <div style={styles.selectWrapper}>
@@ -205,8 +181,8 @@ const Browse = () => {
                 </select>
               </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
 
       {/* Book Grid */}
@@ -271,9 +247,20 @@ const styles = {
     paddingTop: "2rem",
     paddingBottom: "4rem",
   },
-  header: {
+  headerContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
     marginBottom: "2rem",
-    textAlign: "left",
+    gap: "1rem",
+  },
+  headerText: {
+    textAlign: "center",
+  },
+  switchModeBtn: {
+    padding: "0.6rem 1.2rem",
+    fontSize: "0.95rem",
+    borderRadius: "2rem",
   },
   filterBar: {
     padding: "1.5rem",
@@ -313,25 +300,11 @@ const styles = {
     padding: "0.5rem 1.25rem",
     fontSize: "0.875rem",
   },
-  optionsWrapper: {
+  optionsWrapperLocal: {
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "flex-end",
     alignItems: "center",
-    flexWrap: "wrap",
-    gap: "1rem",
-  },
-  toggleGroup: {
-    display: "flex",
-    gap: "0.5rem",
-  },
-  toggleBtn: {
-    padding: "0.4rem 1rem",
-    borderRadius: "2rem",
-    border: "1px solid",
-    fontSize: "0.85rem",
-    fontWeight: "600",
-    cursor: "pointer",
-    transition: "all 0.2s",
+    width: "100%",
   },
   selects: {
     display: "flex",
@@ -380,14 +353,6 @@ const styles = {
   },
 };
 
-// CSS override for select element dark theme compatibility
-const stylesSelectOverride = document.createElement("style");
-stylesSelectOverride.innerHTML = `
-  select option {
-    background-color: var(--bg-card) !important;
-    color: var(--text-primary) !important;
-  }
-`;
-document.head.appendChild(stylesSelectOverride);
+
 
 export default Browse;

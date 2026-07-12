@@ -169,7 +169,7 @@ const styles = {
     zIndex: 100,
     borderWidth: "0 0 1px 0",
     borderRadius: 0,
-    backgroundColor: "rgba(9, 9, 14, 0.8)",
+    backgroundColor: "rgba(224, 242, 254, 0.8)",
   },
   container: {
     height: "70px",
@@ -186,7 +186,7 @@ const styles = {
     fontSize: "1.4rem",
     fontWeight: "700",
     letterSpacing: "-0.5px",
-    background: "linear-gradient(90deg, #f3f4f6, #a78bfa)",
+    background: "linear-gradient(90deg, #2563eb, #7c3aed)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   },
