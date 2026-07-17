@@ -23,6 +23,13 @@ const BookCard = ({ book }) => {
   };
 
   const handleToggleBook = async (listId, containsBook) => {
+    // Optimistic UI update
+    setLists(prevLists => 
+      prevLists.map(lst => 
+        lst.list_id === listId ? { ...lst, contains_book: !containsBook } : lst
+      )
+    );
+    
     setLoading(true);
     try {
       if (containsBook) {
@@ -30,10 +37,16 @@ const BookCard = ({ book }) => {
       } else {
         await api.post(`/reading-lists/${listId}/books`, { book_id: bookId });
       }
-      // Re-fetch status
-      await fetchListStatus();
+      // Re-fetch status in background to ensure sync
+      fetchListStatus();
     } catch (e) {
       console.error("Error updating list membership:", e);
+      // Revert optimistic update on failure
+      setLists(prevLists => 
+        prevLists.map(lst => 
+          lst.list_id === listId ? { ...lst, contains_book: containsBook } : lst
+        )
+      );
     } finally {
       setLoading(false);
     }

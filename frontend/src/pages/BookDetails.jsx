@@ -67,6 +67,13 @@ const BookDetails = () => {
   }, [bookId]);
 
   const handleToggleList = async (listId, containsBook) => {
+    // Optimistic UI update
+    setLists(prevLists => 
+      prevLists.map(lst => 
+        lst.list_id === listId ? { ...lst, contains_book: !containsBook } : lst
+      )
+    );
+    
     try {
       if (containsBook) {
         await api.delete(`/reading-lists/${listId}/books/${bookId}`);
@@ -76,6 +83,12 @@ const BookDetails = () => {
       fetchListStatus();
     } catch (e) {
       console.error("Failed to update list membership:", e);
+      // Revert on error
+      setLists(prevLists => 
+        prevLists.map(lst => 
+          lst.list_id === listId ? { ...lst, contains_book: containsBook } : lst
+        )
+      );
     }
   };
 
