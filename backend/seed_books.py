@@ -20,13 +20,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/14348537-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1813",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL138052W",
@@ -36,13 +36,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/10527843-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1865",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL32466W",
@@ -52,13 +52,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12875748-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1843",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL8193416W",
@@ -68,13 +68,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/14314858-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1890",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL21177W",
@@ -84,13 +84,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12818862-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1846",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL53908W",
@@ -100,13 +100,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8157718-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1876",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL455305W",
@@ -116,13 +116,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/5654516-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1800",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL45089W",
@@ -136,13 +136,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/368541-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1686",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL9170454W",
@@ -152,13 +152,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8281954-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1603",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL66513W",
@@ -168,13 +168,13 @@ BOOKS = [
         ],
         "description": "A highly rated fiction book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/9278312-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fiction"
         ],
         "published_date": "1815",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL18417W",
@@ -184,13 +184,13 @@ BOOKS = [
         ],
         "description": "A highly rated fantasy book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/552443-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fantasy"
         ],
         "published_date": "1899",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL24034W",
@@ -200,13 +200,13 @@ BOOKS = [
         ],
         "description": "A highly rated fantasy book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/13859660-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fantasy"
         ],
         "published_date": "1880",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL85892W",
@@ -216,13 +216,13 @@ BOOKS = [
         ],
         "description": "A highly rated fantasy book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12216503-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fantasy"
         ],
         "published_date": "1897",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL20600W",
@@ -232,13 +232,13 @@ BOOKS = [
         ],
         "description": "A highly rated fantasy book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12717083-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fantasy"
         ],
         "published_date": "1726",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL14942956W",
@@ -248,13 +248,13 @@ BOOKS = [
         ],
         "description": "A highly rated fantasy book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12393037-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fantasy"
         ],
         "published_date": "1903",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL69612W",
@@ -264,13 +264,13 @@ BOOKS = [
         ],
         "description": "A highly rated fantasy book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12622062-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Fantasy"
         ],
         "published_date": "1911",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL450063W",
@@ -280,13 +280,13 @@ BOOKS = [
         ],
         "description": "A highly rated science book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12356249-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Science"
         ],
         "published_date": "1818",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL244537W",
@@ -299,13 +299,13 @@ BOOKS = [
         ],
         "description": "A highly rated science book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/4849549-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Science"
         ],
         "published_date": "1900",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL1089297W",
@@ -315,13 +315,13 @@ BOOKS = [
         ],
         "description": "A highly rated science book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12726168-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Science"
         ],
         "published_date": "1515",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL52267W",
@@ -331,13 +331,13 @@ BOOKS = [
         ],
         "description": "A highly rated science book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/9009316-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Science"
         ],
         "published_date": "1895",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL55649W",
@@ -347,13 +347,13 @@ BOOKS = [
         ],
         "description": "A highly rated science book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/11248037-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Science"
         ],
         "published_date": "1854",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL102749W",
@@ -363,13 +363,13 @@ BOOKS = [
         ],
         "description": "A highly rated science book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/10544254-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Science"
         ],
         "published_date": "1851",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL8193478W",
@@ -379,13 +379,13 @@ BOOKS = [
         ],
         "description": "A highly rated history book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/13300802-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "History"
         ],
         "published_date": "1822",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL262496W",
@@ -395,13 +395,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/13405534-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1887",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL262454W",
@@ -411,13 +411,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8063264-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1900",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL166894W",
@@ -427,13 +427,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/9411873-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1866",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL262421W",
@@ -443,13 +443,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/6717853-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1892",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL76487W",
@@ -459,13 +459,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8242857-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1908",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL472715W",
@@ -475,13 +475,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/13699667-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1920",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL176092W",
@@ -491,13 +491,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8237041-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1800",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL262438W",
@@ -507,13 +507,13 @@ BOOKS = [
         ],
         "description": "A highly rated mystery book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/9247987-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Mystery"
         ],
         "published_date": "1889",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL66562W",
@@ -523,13 +523,13 @@ BOOKS = [
         ],
         "description": "A highly rated romance book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/9278292-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Romance"
         ],
         "published_date": "1811",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL29983W",
@@ -539,13 +539,13 @@ BOOKS = [
         ],
         "description": "A highly rated romance book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8775559-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Romance"
         ],
         "published_date": "1848",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL503666W",
@@ -555,13 +555,13 @@ BOOKS = [
         ],
         "description": "A highly rated romance book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/14428305-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Romance"
         ],
         "published_date": "1600",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL893707W",
@@ -571,13 +571,13 @@ BOOKS = [
         ],
         "description": "A highly rated romance book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/12993424-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Romance"
         ],
         "published_date": "1856",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL259010W",
@@ -587,13 +587,13 @@ BOOKS = [
         ],
         "description": "A highly rated romance book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/7205924-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Romance"
         ],
         "published_date": "1600",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL93082W",
@@ -603,13 +603,13 @@ BOOKS = [
         ],
         "description": "A highly rated romance book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/11621024-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Romance"
         ],
         "published_date": "1472",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL362702W",
@@ -619,13 +619,13 @@ BOOKS = [
         ],
         "description": "A highly rated biography book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/7901303-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Biography"
         ],
         "published_date": "1656",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL267096W",
@@ -635,13 +635,13 @@ BOOKS = [
         ],
         "description": "A highly rated biography book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/2560652-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Biography"
         ],
         "published_date": "1876",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL77746W",
@@ -651,13 +651,13 @@ BOOKS = [
         ],
         "description": "A highly rated biography book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/14641084-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Biography"
         ],
         "published_date": "1908",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL69178W",
@@ -667,13 +667,13 @@ BOOKS = [
         ],
         "description": "A highly rated biography book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/8247724-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Biography"
         ],
         "published_date": "1845",
         "page_count": 0,
-        "curated": true
+        "curated": True
     },
     {
         "google_books_id": "ol_OL78871W",
@@ -683,13 +683,13 @@ BOOKS = [
         ],
         "description": "A highly rated biography book from the Open Library catalog.",
         "cover_image": "https://covers.openlibrary.org/b/id/14856045-L.jpg",
-        "isbn": null,
+        "isbn": None,
         "categories": [
             "Biography"
         ],
         "published_date": "1853",
         "page_count": 0,
-        "curated": true
+        "curated": True
     }
 ]
 
