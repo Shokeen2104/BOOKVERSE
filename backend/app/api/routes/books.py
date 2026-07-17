@@ -2,8 +2,37 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from app.core.database import get_db, get_redis
 from app.core.security import get_current_user
 from app.services import book_service, recommendation_service
+from datetime import datetime, timezone
+import sys
+import os
 
 router = APIRouter(prefix="/api/books", tags=["Books"])
+
+# Temporary route to seed production DB
+@router.get("/seed-database-secret")
+async def temp_seed_route(db=Depends(get_db)):
+    # Import BOOKS from seed_books securely
+    sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    try:
+        from seed_books import BOOKS
+    except ImportError:
+        return {"error": "Could not import BOOKS"}
+        
+    inserted = 0
+    for book_info in BOOKS:
+        doc = {
+            **book_info,
+            "average_rating": 0.0,
+            "total_reviews": 0,
+            "cached_at": datetime.now(timezone.utc)
+        }
+        await db.books.update_one(
+            {"google_books_id": book_info["google_books_id"]},
+            {"$set": doc},
+            upsert=True
+        )
+        inserted += 1
+    return {"status": f"Successfully seeded {inserted} curated books without wiping other data!"}
 
 
 @router.get("/search")
