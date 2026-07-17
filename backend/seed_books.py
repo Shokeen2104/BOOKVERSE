@@ -13,92 +13,683 @@ from app.services.review_service import _update_book_rating
 
 BOOKS = [
     {
-        "google_books_id": "hobbit_id",
-        "title": "The Hobbit",
-        "authors": ["J.R.R. Tolkien"],
-        "description": "Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling any farther than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of dwarves arrive on his doorstep one day to enlist him on an adventure.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780261103344-L.jpg",
-        "isbn": "9780261103344",
-        "categories": ["Fantasy", "Adventure"],
-        "published_date": "1937",
-        "page_count": 310
-    },
-    {
-        "google_books_id": "hp1_id",
-        "title": "Harry Potter and the Sorcerer's Stone",
-        "authors": ["J.K. Rowling"],
-        "description": "Harry Potter has no idea how famous he is. That's because he's being raised by his miserable aunt and uncle who are terrified of Harry's monstrous power. But everything changes when Harry is summoned to attend a school for wizards, and he begins to discover some clues about his illustrious pedigree.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780590353427-L.jpg",
-        "isbn": "9780590353427",
-        "categories": ["Fantasy", "Fiction"],
-        "published_date": "1997",
-        "page_count": 309
-    },
-    {
-        "google_books_id": "1984_id",
-        "title": "1984",
-        "authors": ["George Orwell"],
-        "description": "Winston Smith reins in his rebellion against the Party's control. But his desire to remain human in a world where individuality is a state crime leads him to commit thoughtcrime, and eventually to fall in love with Julia.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
-        "isbn": "9780451524935",
-        "categories": ["Fiction", "Dystopian", "Classics"],
-        "published_date": "1949",
-        "page_count": 328
-    },
-    {
-        "google_books_id": "gatsby_id",
-        "title": "The Great Gatsby",
-        "authors": ["F. Scott Fitzgerald"],
-        "description": "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, The Great Gatsby is a classic of twentieth-century literature.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
-        "isbn": "9780743273565",
-        "categories": ["Fiction", "Classics"],
-        "published_date": "1925",
-        "page_count": 180
-    },
-    {
-        "google_books_id": "mockingbird_id",
-        "title": "To Kill a Mockingbird",
-        "authors": ["Harper Lee"],
-        "description": "The unforgettable novel of a childhood in a sleepy Southern town and the crisis of conscience that rocked it, To Kill a Mockingbird became both an instant bestseller and a critical success.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780446310789-L.jpg",
-        "isbn": "9780446310789",
-        "categories": ["Fiction", "Classics"],
-        "published_date": "1960",
-        "page_count": 281
-    },
-    {
-        "google_books_id": "dune_id",
-        "title": "Dune",
-        "authors": ["Frank Herbert"],
-        "description": "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the 'spice' melange.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780441172719-L.jpg",
-        "isbn": "9780441172719",
-        "categories": ["Science Fiction", "Adventure"],
-        "published_date": "1965",
-        "page_count": 604
-    },
-    {
-        "google_books_id": "pride_id",
+        "google_books_id": "ol_OL66554W",
         "title": "Pride and Prejudice",
-        "authors": ["Jane Austen"],
-        "description": "The romantic clash between the opinionated Elizabeth Bennet and her proud suitor, Mr. Darcy, is a splendid performance of civilized sparring.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780679783268-L.jpg",
-        "isbn": "9780679783268",
-        "categories": ["Fiction", "Romance", "Classics"],
+        "authors": [
+            "Jane Austen"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/14348537-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
         "published_date": "1813",
-        "page_count": 279
+        "page_count": 0,
+        "curated": true
     },
     {
-        "google_books_id": "sapiens_id",
-        "title": "Sapiens: A Brief History of Humankind",
-        "authors": ["Yuval Noah Harari"],
-        "description": "Destined to become a modern classic, Sapiens is a thrilling and provocative recount of the history of humankind, from the evolutionary stages of early hominids to the present day.",
-        "cover_image": "https://covers.openlibrary.org/b/isbn/9780062316097-L.jpg",
-        "isbn": "9780062316097",
-        "categories": ["History", "Science", "Nonfiction"],
-        "published_date": "2011",
-        "page_count": 512
+        "google_books_id": "ol_OL138052W",
+        "title": "Alice's Adventures in Wonderland",
+        "authors": [
+            "Lewis Carroll"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/10527843-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1865",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL32466W",
+        "title": "A Christmas Carol",
+        "authors": [
+            "Charles Dickens"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12875748-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1843",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL8193416W",
+        "title": "The Picture of Dorian Gray",
+        "authors": [
+            "Oscar Wilde"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/14314858-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1890",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL21177W",
+        "title": "Wuthering Heights",
+        "authors": [
+            "Emily Bronte\u0308"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12818862-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1846",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL53908W",
+        "title": "Adventures of Huckleberry Finn",
+        "authors": [
+            "Mark Twain"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8157718-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1876",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL455305W",
+        "title": "The Scarlet Letter",
+        "authors": [
+            "Nathaniel Hawthorne"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/5654516-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1800",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL45089W",
+        "title": "Robinson Crusoe",
+        "authors": [
+            "Daniel Defoe",
+            "J. J. Grandville",
+            "Petrus Borel",
+            "Les \u00e9ditions du Rey",
+            "N. C. Wyeth"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/368541-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1686",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL9170454W",
+        "title": "Hamlet",
+        "authors": [
+            "William Shakespeare"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8281954-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1603",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL66513W",
+        "title": "Emma",
+        "authors": [
+            "Jane Austen"
+        ],
+        "description": "A highly rated fiction book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/9278312-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fiction"
+        ],
+        "published_date": "1815",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL18417W",
+        "title": "The Wonderful Wizard of Oz",
+        "authors": [
+            "L. Frank Baum"
+        ],
+        "description": "A highly rated fantasy book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/552443-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fantasy"
+        ],
+        "published_date": "1899",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL24034W",
+        "title": "Treasure Island",
+        "authors": [
+            "Robert Louis Stevenson"
+        ],
+        "description": "A highly rated fantasy book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/13859660-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fantasy"
+        ],
+        "published_date": "1880",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL85892W",
+        "title": "Dracula",
+        "authors": [
+            "Bram Stoker"
+        ],
+        "description": "A highly rated fantasy book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12216503-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fantasy"
+        ],
+        "published_date": "1897",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL20600W",
+        "title": "Gulliver's Travels",
+        "authors": [
+            "Jonathan Swift"
+        ],
+        "description": "A highly rated fantasy book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12717083-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fantasy"
+        ],
+        "published_date": "1726",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL14942956W",
+        "title": "The Call of the Wild",
+        "authors": [
+            "Jack London"
+        ],
+        "description": "A highly rated fantasy book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12393037-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fantasy"
+        ],
+        "published_date": "1903",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL69612W",
+        "title": "The Secret Garden",
+        "authors": [
+            "Frances Hodgson Burnett"
+        ],
+        "description": "A highly rated fantasy book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12622062-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Fantasy"
+        ],
+        "published_date": "1911",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL450063W",
+        "title": "Frankenstein; or, The Modern Prometheus",
+        "authors": [
+            "Mary Shelley"
+        ],
+        "description": "A highly rated science book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12356249-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Science"
+        ],
+        "published_date": "1818",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL244537W",
+        "title": "The Art of War",
+        "authors": [
+            "\u5b59\u6b66 (Sun Tzu)",
+            "Stephen F. Kaufman",
+            "Lionel Giles",
+            "On\u00e9simo Colavidas"
+        ],
+        "description": "A highly rated science book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/4849549-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Science"
+        ],
+        "published_date": "1900",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL1089297W",
+        "title": "The Prince",
+        "authors": [
+            "Niccol\u00f2 Machiavelli"
+        ],
+        "description": "A highly rated science book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12726168-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Science"
+        ],
+        "published_date": "1515",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL52267W",
+        "title": "The Time Machine",
+        "authors": [
+            "H. G. Wells"
+        ],
+        "description": "A highly rated science book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/9009316-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Science"
+        ],
+        "published_date": "1895",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL55649W",
+        "title": "Walden",
+        "authors": [
+            "Henry David Thoreau"
+        ],
+        "description": "A highly rated science book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/11248037-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Science"
+        ],
+        "published_date": "1854",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL102749W",
+        "title": "Moby Dick",
+        "authors": [
+            "Herman Melville"
+        ],
+        "description": "A highly rated science book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/10544254-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Science"
+        ],
+        "published_date": "1851",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL8193478W",
+        "title": "Oliver Twist",
+        "authors": [
+            "Charles Dickens"
+        ],
+        "description": "A highly rated history book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/13300802-L.jpg",
+        "isbn": null,
+        "categories": [
+            "History"
+        ],
+        "published_date": "1822",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL262496W",
+        "title": "A Study in Scarlet",
+        "authors": [
+            "Arthur Conan Doyle"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/13405534-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1887",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL262454W",
+        "title": "The Hound of the Baskervilles",
+        "authors": [
+            "Arthur Conan Doyle"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8063264-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1900",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL166894W",
+        "title": "\u041f\u0440\u0435\u0441\u0442\u0443\u043f\u043b\u0435\u043d\u0438\u0435 \u0438 \u043d\u0430\u043a\u0430\u0437\u0430\u043d\u0438\u0435",
+        "authors": [
+            "Fyodor Dostoyevsky"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/9411873-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1866",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL262421W",
+        "title": "The Adventures of Sherlock Holmes [12 stories]",
+        "authors": [
+            "Arthur Conan Doyle"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/6717853-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1892",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL76487W",
+        "title": "The Man Who Was Thursday",
+        "authors": [
+            "Gilbert Keith Chesterton"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8242857-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1908",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL472715W",
+        "title": "The Mysterious Affair at Styles",
+        "authors": [
+            "Agatha Christie"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/13699667-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1920",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL176092W",
+        "title": "The Moonstone",
+        "authors": [
+            "Wilkie Collins"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8237041-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1800",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL262438W",
+        "title": "The Sign of Four",
+        "authors": [
+            "Arthur Conan Doyle"
+        ],
+        "description": "A highly rated mystery book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/9247987-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Mystery"
+        ],
+        "published_date": "1889",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL66562W",
+        "title": "Sense and Sensibility",
+        "authors": [
+            "Jane Austen"
+        ],
+        "description": "A highly rated romance book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/9278292-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Romance"
+        ],
+        "published_date": "1811",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL29983W",
+        "title": "Little Women",
+        "authors": [
+            "Louisa May Alcott"
+        ],
+        "description": "A highly rated romance book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8775559-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Romance"
+        ],
+        "published_date": "1848",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL503666W",
+        "title": "Don Quijote de la Mancha",
+        "authors": [
+            "Miguel de Cervantes Saavedra"
+        ],
+        "description": "A highly rated romance book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/14428305-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Romance"
+        ],
+        "published_date": "1600",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL893707W",
+        "title": "Madame Bovary",
+        "authors": [
+            "Gustave Flaubert"
+        ],
+        "description": "A highly rated romance book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/12993424-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Romance"
+        ],
+        "published_date": "1856",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL259010W",
+        "title": "A Midsummer Night's Dream",
+        "authors": [
+            "William Shakespeare"
+        ],
+        "description": "A highly rated romance book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/7205924-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Romance"
+        ],
+        "published_date": "1600",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL93082W",
+        "title": "La Divina Commedia",
+        "authors": [
+            "Dante Alighieri"
+        ],
+        "description": "A highly rated romance book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/11621024-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Romance"
+        ],
+        "published_date": "1472",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL362702W",
+        "title": "Julius Caesar",
+        "authors": [
+            "William Shakespeare"
+        ],
+        "description": "A highly rated biography book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/7901303-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Biography"
+        ],
+        "published_date": "1656",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL267096W",
+        "title": "\u0410\u043d\u043d\u0430 \u041a\u0430\u0440\u0435\u043d\u0438\u043d\u0430",
+        "authors": [
+            "\u041b\u0435\u0432 \u0422\u043e\u043b\u0441\u0442\u043e\u0439"
+        ],
+        "description": "A highly rated biography book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/2560652-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Biography"
+        ],
+        "published_date": "1876",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL77746W",
+        "title": "Anne of Green Gables",
+        "authors": [
+            "Lucy Maud Montgomery"
+        ],
+        "description": "A highly rated biography book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/14641084-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Biography"
+        ],
+        "published_date": "1908",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL69178W",
+        "title": "Narrative of the life of Frederick Douglass",
+        "authors": [
+            "Frederick Douglass"
+        ],
+        "description": "A highly rated biography book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/8247724-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Biography"
+        ],
+        "published_date": "1845",
+        "page_count": 0,
+        "curated": true
+    },
+    {
+        "google_books_id": "ol_OL78871W",
+        "title": "Twelve years a slave",
+        "authors": [
+            "Solomon Northup"
+        ],
+        "description": "A highly rated biography book from the Open Library catalog.",
+        "cover_image": "https://covers.openlibrary.org/b/id/14856045-L.jpg",
+        "isbn": null,
+        "categories": [
+            "Biography"
+        ],
+        "published_date": "1853",
+        "page_count": 0,
+        "curated": true
     }
 ]
 

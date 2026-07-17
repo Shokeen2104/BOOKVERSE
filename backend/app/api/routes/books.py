@@ -20,9 +20,7 @@ async def search_books(
     if not isinstance(result, dict):
         result = {"books": [], "total": 0}
 
-    # Cache each book in MongoDB for future reference
-    for book_data in result.get("books", []):
-        await book_service.get_or_create_book(db, book_data["google_books_id"], book_data)
+    # We no longer cache books globally during search to prevent DB pollution.
 
     return result
 

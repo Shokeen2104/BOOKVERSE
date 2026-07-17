@@ -109,10 +109,20 @@ async def get_or_create_book(db, google_books_id: str, book_data: dict = None) -
         "average_rating": 0.0,
         "total_reviews": 0,
         "cached_at": datetime.now(timezone.utc),
+        "curated": book_data.get("curated", False),
     }
     result = await db.books.insert_one(doc)
     doc["id"] = str(result.inserted_id)
     doc.pop("_id", None)
+    
+    # Enforce bounded LRU cache for non-curated books (max 12)
+    non_curated_count = await db.books.count_documents({"curated": False})
+    if non_curated_count > 12:
+        num_to_delete = non_curated_count - 12
+        oldest_books = db.books.find({"curated": False}).sort("cached_at", 1).limit(num_to_delete)
+        async for old_book in oldest_books:
+            await db.books.delete_one({"_id": old_book["_id"]})
+            
     return doc
 
 
