@@ -12,7 +12,7 @@ const Browse = () => {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [category, setCategory] = useState(initialCategory);
-  const [sortBy, setSortBy] = useState("newest");
+  const [sortBy, setSortBy] = useState("rating");
   
   // Pagination
   const [page, setPage] = useState(1);
@@ -90,10 +90,10 @@ const Browse = () => {
       <div style={styles.headerContainer}>
         <div style={styles.headerText}>
           <h1 className="font-serif">Discover Books</h1>
-          <p style={{ color: "var(--text-secondary)", marginTop: "0.25rem" }}>
+          <p style={{ color: "var(--text-secondary)", marginTop: "0.25rem", fontStyle: "italic" }}>
             {activeSearchQuery
               ? "Search results from the online catalog."
-              : "Browse our collection of cached books."}
+              : '"A reader lives a thousand lives before he dies. The man who never reads lives only one." - George R.R. Martin'}
           </p>
         </div>
       </div>
@@ -153,7 +153,6 @@ const Browse = () => {
                   }}
                   style={styles.select}
                 >
-                  <option value="newest">Newly Cached</option>
                   <option value="rating">Top Rated</option>
                   <option value="title">Alphabetical</option>
                 </select>
