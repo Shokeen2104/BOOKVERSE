@@ -112,7 +112,7 @@ async def get_or_create_book(db, google_books_id: str, book_data: dict = None) -
     }
     result = await db.books.insert_one(doc)
     doc["id"] = str(result.inserted_id)
-    doc["_id"] = result.inserted_id
+    doc.pop("_id", None)
     return doc
 
 

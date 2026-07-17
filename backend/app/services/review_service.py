@@ -38,6 +38,7 @@ async def create_review(db, user_id: str, review_data: dict) -> dict:
     await _update_book_rating(db, book_id)
 
     review_doc["id"] = str(result.inserted_id)
+    review_doc.pop("_id", None)
     return review_doc
 
 

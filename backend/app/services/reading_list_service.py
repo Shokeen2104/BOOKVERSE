@@ -62,6 +62,7 @@ async def create_list(db, user_id: str, name: str) -> dict:
     doc["id"] = str(result.inserted_id)
     doc["user_id"] = str(doc["user_id"])
     doc["book_count"] = 0
+    doc.pop("_id", None)
     return doc
 
 
