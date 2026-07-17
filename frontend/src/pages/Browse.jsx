@@ -8,14 +8,11 @@ const Browse = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialSearch = searchParams.get("search") || "";
   const initialCategory = searchParams.get("category") || "";
-  const initialSource = searchParams.get("source") || "local";
-
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [category, setCategory] = useState(initialCategory);
   const [sortBy, setSortBy] = useState("newest");
-  const [source, setSource] = useState(initialSource); // "local" or "google"
   
   // Pagination
   const [page, setPage] = useState(1);
@@ -28,7 +25,7 @@ const Browse = () => {
     setLoading(true);
     const activeSearchQuery = searchParams.get("search") || "";
     try {
-      if (source === "google" && activeSearchQuery.trim()) {
+      if (activeSearchQuery.trim()) {
         // Search Google Books API (via backend proxy)
         const response = await api.get("/books/search", {
           params: { q: activeSearchQuery, page, limit: 12 },
@@ -46,7 +43,6 @@ const Browse = () => {
             limit: 12,
             category: category || undefined,
             sort_by: sortBy,
-            q: activeSearchQuery.trim() || undefined,
           },
         });
         setBooks(response.data.books || []);
@@ -64,10 +60,8 @@ const Browse = () => {
   useEffect(() => {
     const searchVal = searchParams.get("search") || "";
     const catVal = searchParams.get("category") || "";
-    const sourceVal = searchParams.get("source") || (searchVal ? "google" : "local");
     setSearchQuery(searchVal);
     setCategory(catVal);
-    setSource(sourceVal);
     setPage(1);
   }, [searchParams]);
 
@@ -75,14 +69,13 @@ const Browse = () => {
   const activeSearchQuery = searchParams.get("search") || "";
   useEffect(() => {
     fetchBooks();
-  }, [page, source, category, sortBy, activeSearchQuery]);
+  }, [page, category, sortBy, activeSearchQuery]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
     const newParams = {};
     if (searchQuery.trim()) {
       newParams.search = searchQuery.trim();
-      newParams.source = source;
     }
     setSearchParams(newParams);
   };
@@ -98,26 +91,11 @@ const Browse = () => {
         <div style={styles.headerText}>
           <h1 className="font-serif">Discover Books</h1>
           <p style={{ color: "var(--text-secondary)", marginTop: "0.25rem" }}>
-            {source === "google"
-              ? "Browse books from the vast ocean of books."
-              : "Browse books cached by the BookVerse community."}
+            {activeSearchQuery
+              ? "Search results from the online catalog."
+              : "Browse our collection of cached books."}
           </p>
         </div>
-        <button
-          onClick={() => {
-            const newSource = source === "local" ? "google" : "local";
-            setSource(newSource);
-            const newParams = { source: newSource };
-            if (searchQuery.trim()) {
-              newParams.search = searchQuery.trim();
-            }
-            setSearchParams(newParams);
-          }}
-          className="btn btn-primary"
-          style={styles.switchModeBtn}
-        >
-          {source === "local" ? "Search Online" : "Search in Community Shelf"}
-        </button>
       </div>
 
       {/* Filter and Search Bar */}
@@ -141,7 +119,7 @@ const Browse = () => {
           </button>
         </form>
 
-        {source === "local" && (
+        {(!activeSearchQuery) && (
           <div style={styles.optionsWrapperLocal}>
             <div style={styles.selects}>
               {/* Category selector */}
@@ -232,9 +210,9 @@ const Browse = () => {
           <BookOpen size={48} color="var(--text-muted)" />
           <h3 style={{ marginTop: "1rem" }}>No books found</h3>
           <p style={{ color: "var(--text-secondary)", maxWidth: "400px", marginTop: "0.5rem" }}>
-            {source === "google"
+            {activeSearchQuery
               ? "We couldn't find any books matching that query online. Try searching for authors or generic keywords."
-              : "No books match your genre filters yet. Switch to the 'Online Catalog' tab to search and import books!"}
+              : "No books match your genre filters yet."}
           </p>
         </div>
       )}
