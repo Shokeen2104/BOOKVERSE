@@ -370,6 +370,8 @@ const styles = {
     marginBottom: "3rem",
     textAlign: "left",
     flexWrap: "wrap",
+    position: "relative",
+    zIndex: 10,
   },
   coverSection: {
     flex: "0 0 240px",
