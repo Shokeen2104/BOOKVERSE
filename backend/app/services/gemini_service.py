@@ -136,6 +136,13 @@ def _build_fallback_insights(book: Dict[str, Any]) -> Dict[str, Any]:
     }
 
 
+def _get_candidate_models() -> List[str]:
+    configured = getattr(settings, "GEMINI_MODEL", "gemini-3.5-flash-lite")
+    pool = [configured, "gemini-3.5-flash-lite", "gemini-3.5-flash", "gemini-3.8-flash"]
+    seen = set()
+    return [m for m in pool if not (m in seen or seen.add(m))]
+
+
 async def generate_book_insights(
     book: Dict[str, Any],
     reviews: Optional[List[Dict[str, Any]]] = None
@@ -148,9 +155,6 @@ async def generate_book_insights(
     if not api_key or api_key.strip() == "" or api_key == "your_gemini_api_key_here":
         logger.warning("GEMINI_API_KEY is not configured in .env. Returning intelligent fallback analytics.")
         return _build_fallback_insights(book)
-
-    model = getattr(settings, "GEMINI_MODEL", "gemini-1.5-flash")
-    url = f"{GEMINI_API_URL.format(model=model)}?key={api_key}"
 
     # Prepare prompt data
     title = book.get("title", "Unknown Title")
@@ -205,29 +209,33 @@ Evaluation Guidelines:
         },
     }
 
-    try:
-        async with httpx.AsyncClient(timeout=25.0) as client:
-            response = await client.post(url, json=payload)
-            
-            if response.status_code != 200:
-                logger.error(f"Gemini API returned status {response.status_code}: {response.text}")
-                return _build_fallback_insights(book)
-                
-            data = response.json()
-            candidates = data.get("candidates", [])
-            if not candidates:
-                return _build_fallback_insights(book)
+    models_to_try = _get_candidate_models()
 
-            text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-            if not text_content:
-                return _build_fallback_insights(book)
+    for model in models_to_try:
+        url = f"{GEMINI_API_URL.format(model=model)}?key={api_key}"
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.post(url, json=payload)
+                if response.status_code != 200:
+                    logger.warning(f"Gemini API model {model} returned status {response.status_code}. Trying next candidate...")
+                    continue
 
-            parsed_json = json.loads(text_content)
-            return parsed_json
+                data = response.json()
+                candidates = data.get("candidates", [])
+                if not candidates:
+                    continue
 
-    except Exception as e:
-        logger.error(f"Error calling Gemini API: {e}", exc_info=True)
-        return _build_fallback_insights(book)
+                text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+                if not text_content:
+                    continue
+
+                return json.loads(text_content)
+        except Exception as e:
+            logger.warning(f"Error calling Gemini model {model}: {e}")
+            continue
+
+    logger.error("All Gemini candidate models failed or unavailable. Falling back to default insights.")
+    return _build_fallback_insights(book)
 
 
 CHAT_SCHEMA = {
@@ -330,31 +338,34 @@ async def chat_with_assistant(
         },
     }
 
-    try:
-        async with httpx.AsyncClient(timeout=30.0) as client:
-            response = await client.post(url, json=payload)
-            if response.status_code != 200:
-                logger.error(f"Gemini Chat API returned status {response.status_code}: {response.text}")
-                return {
-                    "reply": "I'm having a little trouble connecting to my literary archives right now. Please try asking again in a moment!",
-                    "book_suggestions": [],
-                }
+    models_to_try = _get_candidate_models()
 
-            data = response.json()
-            candidates = data.get("candidates", [])
-            if not candidates:
-                return {
-                    "reply": "I couldn't compose a reply for that query. Could you rephrase your question?",
-                    "book_suggestions": [],
-                }
+    for model in models_to_try:
+        url = f"{GEMINI_API_URL.format(model=model)}?key={api_key}"
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                response = await client.post(url, json=payload)
+                if response.status_code != 200:
+                    logger.warning(f"Gemini Chat API model {model} returned status {response.status_code}. Trying next candidate...")
+                    continue
 
-            text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
-            return json.loads(text_content)
+                data = response.json()
+                candidates = data.get("candidates", [])
+                if not candidates:
+                    continue
 
-    except Exception as e:
-        logger.error(f"Error calling Gemini Chat: {e}", exc_info=True)
-        return {
-            "reply": "An error occurred while generating a response. Please check your network and API key configuration.",
-            "book_suggestions": [],
-        }
+                text_content = candidates[0].get("content", {}).get("parts", [{}])[0].get("text", "")
+                if not text_content:
+                    continue
+
+                return json.loads(text_content)
+        except Exception as e:
+            logger.warning(f"Error calling Gemini Chat model {model}: {e}")
+            continue
+
+    logger.error("All Gemini chat candidate models failed or unavailable.")
+    return {
+        "reply": "I'm having a little trouble connecting to my literary archives right now. Please try asking again in a moment!",
+        "book_suggestions": [],
+    }
 
