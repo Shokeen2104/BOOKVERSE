@@ -8,7 +8,7 @@ from app.core.database import (
     connect_to_redis,
     close_redis_connection,
 )
-from app.api.routes import auth, books, reviews, reading_lists, users
+from app.api.routes import auth, books, reviews, reading_lists, users, ai
 
 
 @asynccontextmanager
@@ -48,6 +48,7 @@ app.include_router(books.router)
 app.include_router(reviews.router)
 app.include_router(reading_lists.router)
 app.include_router(users.router)
+app.include_router(ai.router)
 
 
 @app.get("/", tags=["Health"])

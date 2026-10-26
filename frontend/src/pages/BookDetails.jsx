@@ -5,6 +5,7 @@ import api from "../api/axios";
 import { useAuth } from "../context/AuthContext";
 import StarRating from "../components/StarRating";
 import ReviewCard from "../components/ReviewCard";
+import AIBookInsights from "../components/AIBookInsights";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -259,6 +260,9 @@ const BookDetails = () => {
           </div>
         </div>
       </div>
+
+      {/* AI Book DNA & Analytics */}
+      <AIBookInsights bookId={book?.id || bookId} />
 
       {/* Review input Form */}
       {showReviewForm && (

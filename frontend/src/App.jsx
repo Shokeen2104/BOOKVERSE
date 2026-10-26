@@ -4,6 +4,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ErrorBoundary from "./components/ErrorBoundary";
+import AIAssistantDrawer from "./components/AIAssistantDrawer";
 
 // Pages
 import Home from "./pages/Home";
@@ -64,6 +65,7 @@ function App() {
               <AnimatedRoutes />
             </ErrorBoundary>
           </main>
+          <AIAssistantDrawer />
         </div>
       </AuthProvider>
     </BrowserRouter>
