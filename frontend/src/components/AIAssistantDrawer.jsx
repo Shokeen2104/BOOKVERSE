@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import { 
   Sparkles, 
   X, 
@@ -30,6 +31,7 @@ const BOOK_PAGE_PROMPTS = [
 ];
 
 const AIAssistantDrawer = () => {
+  const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([
@@ -58,6 +60,12 @@ const AIAssistantDrawer = () => {
       scrollToBottom();
     }
   }, [messages, isOpen]);
+
+  // Only display the AI Assistant popup / button after the user is logged in, and hide on login/register pages
+  const isAuthPage = ["/login", "/register"].includes(location.pathname);
+  if (!user || isAuthPage) {
+    return null;
+  }
 
   const handleSend = async (textToSend) => {
     const text = (textToSend || input).trim();
