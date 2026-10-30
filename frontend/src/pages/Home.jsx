@@ -45,37 +45,23 @@ const Home = () => {
 
   return (
     <div className="container animate-fade-in" style={styles.home}>
-      {/* Hero Section */}
-      <section className="glass-panel" style={styles.hero}>
-        <div style={styles.heroContent}>
-          <div style={styles.badge}>
-            <Sparkles size={14} color="var(--primary)" />
-            <span>Discover Your Next Chapter</span>
+      {/* Logged in Welcome Dashboard Header */}
+      {user && (
+        <div style={styles.dashboardHeader}>
+          <div>
+            <h1 className="font-serif" style={styles.welcomeTitle}>
+              Welcome back, <span style={styles.gradientText}>{user.username}</span>
+            </h1>
+            <p style={styles.welcomeSubtitle}>
+              Explore trending books, personalized recommendations, or ask your AI reader assistant.
+            </p>
           </div>
-          {user && (
-            <div style={{ fontSize: '1.3rem', color: 'var(--primary)', fontWeight: '600', marginBottom: '-0.5rem' }}>
-              Hey {user.username}, enjoy reading!
-            </div>
-          )}
-          <h1 className="font-serif" style={styles.heroTitle}>
-            Where books meet their <span style={styles.gradientText}>perfect reader</span>.
-          </h1>
-          <p style={styles.heroSubtitle}>
-            Join BookVerse to discover trending novels, share raw reviews, build your digital bookshelves, and sync recommendations.
-          </p>
-          <div style={styles.heroActions}>
-            <Link to="/browse" className="btn btn-primary">
-              <span>Browse Library</span>
-              <ArrowRight size={18} />
-            </Link>
-            {!user && (
-              <Link to="/register" className="btn btn-secondary">
-                <span>Sign Up Free</span>
-              </Link>
-            )}
-          </div>
+          <Link to="/browse" className="btn btn-primary">
+            <span>Browse Library</span>
+            <ArrowRight size={18} />
+          </Link>
         </div>
-      </section>
+      )}
 
       {/* Trending Books */}
       <section style={styles.section}>
@@ -151,53 +137,32 @@ const styles = {
     paddingTop: "2rem",
     paddingBottom: "4rem",
   },
-  hero: {
-    padding: "4rem 3rem",
-    textAlign: "center",
-    marginBottom: "4rem",
-    background: "radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent), rgba(255, 255, 255, 0.4)",
-  },
-  heroContent: {
-    maxWidth: "800px",
-    margin: "0 auto",
+  dashboardHeader: {
     display: "flex",
-    flexDirection: "column",
     alignItems: "center",
-    gap: "1.5rem",
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+    gap: "1.25rem",
+    marginBottom: "3rem",
+    padding: "1.75rem 2rem",
+    borderRadius: "1rem",
+    backgroundColor: "rgba(255, 255, 255, 0.6)",
+    border: "1px solid var(--border-color)",
   },
-  badge: {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    padding: "0.4rem 1rem",
-    borderRadius: "2rem",
-    backgroundColor: "rgba(139, 92, 246, 0.1)",
-    border: "1px solid rgba(139, 92, 246, 0.2)",
-    fontSize: "0.85rem",
-    fontWeight: "600",
-    color: "var(--text-primary)",
-  },
-  heroTitle: {
-    fontSize: "3.2rem",
+  welcomeTitle: {
+    fontSize: "2.2rem",
     fontWeight: "700",
-    letterSpacing: "-1.5px",
-    lineHeight: "1.15",
+    letterSpacing: "-0.5px",
+    marginBottom: "0.25rem",
+  },
+  welcomeSubtitle: {
+    fontSize: "1rem",
+    color: "var(--text-secondary)",
   },
   gradientText: {
     background: "linear-gradient(90deg, var(--primary), var(--accent))",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-  },
-  heroSubtitle: {
-    fontSize: "1.15rem",
-    color: "var(--text-secondary)",
-    lineHeight: "1.6",
-    maxWidth: "640px",
-  },
-  heroActions: {
-    display: "flex",
-    gap: "1rem",
-    marginTop: "1rem",
   },
   section: {
     marginBottom: "4rem",

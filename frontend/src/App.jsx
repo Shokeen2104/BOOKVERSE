@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { AuthProvider } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -18,16 +18,17 @@ import Register from "./pages/Register";
 import "./App.css";
 
 const AnimatedRoutes = () => {
+  const { user } = useAuth();
   const location = useLocation();
   return (
     <div key={location.pathname} className="page-transition-enter" style={{ flex: 1, display: "flex", flexDirection: "column" }}>
       <Routes location={location}>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
+        {/* Default route: Login page (1st image) for guests, Home dashboard for logged-in users */}
+        <Route path="/" element={user ? <Home /> : <Login initialTab="login" />} />
         <Route path="/browse" element={<Browse />} />
         <Route path="/books/:bookId" element={<BookDetails />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={user ? <Navigate to="/" replace /> : <Login initialTab="login" />} />
+        <Route path="/register" element={user ? <Navigate to="/" replace /> : <Register />} />
 
         {/* Private Routes */}
         <Route
